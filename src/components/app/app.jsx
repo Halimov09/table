@@ -6,7 +6,7 @@ import { StickyHeadTable } from "../";
 
 const App = () => {
   return (
-    <div>
+    <div className="table table-light table-striped" style={{backgroundColor: "rgb(248 249 250)", height: "100vh"}}>
       <ReactHTMLTableToExcel
         id="test-table-xls-button"
         className="download-table-xls-button"
@@ -15,7 +15,7 @@ const App = () => {
         sheet="tablexls"
         buttonText="Download as XLS"
       />
-      <div className="App container" sx={{ overflowX: "scroll" }}>
+      <div className="App container"  >
         <Table
           id="table-to-xls"
           sx={{ minWidth: 650, overflowX: "scroll" }}
