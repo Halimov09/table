@@ -55,6 +55,26 @@ const rows = [
   createData('Russia', 'RU', 146793744, 17098246),
   createData('Nigeria', 'NG', 200962417, 923768),
   createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
 export default function StickyHeadTable() {
@@ -71,7 +91,7 @@ export default function StickyHeadTable() {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '100%', overflowX: "scroll" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
