@@ -1,143 +1,254 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-
-const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
-
-const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('Brazil', 'BR', 210147125, 8515767),
-];
-
-export default function StickyHeadTable() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
+const Main = () => {
   return (
-    <Paper sx={{ width: '100%', overflowX: "scroll" }} >
-      <TableContainer sx={{ maxHeight: 440 }} >
-        <Table stickyHeader aria-label="sticky table" >
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+    <div className="main">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Energency
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="firstCheckbox"
+                  />
+                  <label className="form-check-label" for="firstCheckbox">
+                    active energy received
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="secondCheckbox"
+                  />
+                  <label className="form-check-label" for="secondCheckbox">
+                    Second checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Energency loss
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="firstCheckbox"
+                  />
+                  <label className="form-check-label" for="firstCheckbox">
+                    First checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="secondCheckbox"
+                  />
+                  <label className="form-check-label" for="secondCheckbox">
+                    Second checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Energency of 1 st harmonic
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="firstCheckbox"
+                  />
+                  <label className="form-check-label" for="firstCheckbox">
+                    First checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="secondCheckbox"
+                  />
+                  <label className="form-check-label" for="secondCheckbox">
+                    Second checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+                <li className="list-group-item">
+                  <input
+                    className="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="thirdCheckbox"
+                  />
+                  <label className="form-check-label" for="thirdCheckbox">
+                    Third checkbox
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{ marginTop: "20px" }}>
+        <div style={{width: "50%"}}>
+          <label class="visually-hidden" for="specificSizeSelect">
+            Preference
+          </label>
+          <select class="form-select" id="specificSizeSelect">
+            <option selected>Day</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div style={{display: "flex", gap: "15px", marginTop: "20px"}}>
+          <div>
+            <label class="visually-hidden" for="specificSizeSelect">
+              Preference
+            </label>
+            <select class="form-select" id="specificSizeSelect">
+              <option selected>May</option>
+              <option value="1">Iyun</option>
+              <option value="2">Iyul</option>
+              <option value="3">Avgust</option>
+              <option value="4">Sentyabr</option>
+              <option value="5">Oktyabr</option>
+            </select>
+          </div>
+          <div>
+            <label class="visually-hidden" for="specificSizeSelect">
+              Preference
+            </label>
+            <select class="form-select" id="specificSizeSelect">
+              <option selected>years</option>
+              <option value="1">2023</option>
+              <option value="2">2022</option>
+              <option value="3">2021</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button className="btn btn-secondary right" style={{marginTop: "20px"}}>Report generating</button>
+    </div>
   );
-}
+};
+
+export default Main;

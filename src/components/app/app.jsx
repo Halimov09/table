@@ -1,28 +1,22 @@
-import { Table } from "@mui/material";
-import React from "react";
-
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import { StickyHeadTable } from "../";
+import { Routes, Route } from "react-router-dom";
+import { Main, Menu, Table } from "../";
 
 const App = () => {
   return (
-    <div className="table table-light table-striped" style={{backgroundColor: "rgb(248 249 250)", height: "100vh"}}>
-      <ReactHTMLTableToExcel
-        id="test-table-xls-button"
-        className="download-table-xls-button"
-        table="table-to-xls"
-        filename="tablexls"
-        sheet="tablexls"
-        buttonText="Download as XLS"
-      />
-      <div className="App container"  >
-        <Table
-          id="table-to-xls"
-          sx={{ minWidth: 650, overflowX: "scroll" }}
-          aria-label="simple table"
-        >
-          <StickyHeadTable />
-        </Table>
+    <div
+      style={{
+        width: "100%",
+        paddingTop: "40px",
+        height: "100vh",
+        backgroundColor: "hsl(0deg 0% 93.33%)",
+      }}
+    >
+    <div className="container main-container">
+    <Menu/>
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+        <Table />
       </div>
     </div>
   );

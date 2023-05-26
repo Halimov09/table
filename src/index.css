@@ -1,3 +1,99 @@
-.container{
-    overflow-x: scroll !important;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 98% !important;
+  padding: 0 14px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tabl {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 16px;
+  width: 60% !important;
+  border: 1px solid rgba(53, 48, 48, 0.342);
+}
+.download-table-xls-button {
+  margin-left: auto;
+  margin-top: -30px;
+}
+
+.list-group {
+  --bs-list-group-border-radius: none !important;
+}
+
+.right{
+  display: block;
+  margin-left: auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 25% !important;
+  border: 1px solid rgba(53, 48, 48, 0.342);
+  padding: 10px 15px;
+  background-color: white;
+}
+
+.accordion-body {
+  padding: 0 !important;
+}
+
+.collapsed {
+  font-weight: bold !important;
+}
+
+.menu{
+  width: 15%;
+}
+
+
+@media (max-width: 1290px){
+  .main-container{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tabled{
+    overflow-x: scroll;
+  }
+  .menu{
+    width: 40% !important;
+  }
+  .main{
+    width: 60% !important;
+  }
+  .tabl {
+    width: 100% !important;
+  }
+}
+
+
+@media (max-width: 800px){
+  .main-container{
+    flex-direction: column;
+    align-items: center;
+  }
+  .tabled{
+    overflow-x: scroll;
+  }
+  .menu{
+    width: 100% !important;
+  }
+  .main{
+    width: 100% !important;
+  }
+  .tabl {
+    width: 100% !important;
+  }
 }
