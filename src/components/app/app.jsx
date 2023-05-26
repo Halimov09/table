@@ -9,6 +9,7 @@ const App = () => {
         paddingTop: "40px",
         height: "100vh",
         backgroundColor: "hsl(0deg 0% 93.33%)",
+        marginBottom: "60px"
       }}
     >
     <div className="container main-container">
